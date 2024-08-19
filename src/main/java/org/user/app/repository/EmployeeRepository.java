@@ -19,4 +19,12 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
      * @return A list of employees belonging to the specified department.
      */ 
     public List<Employee> findByDepartment(String department);
+    
+    /**
+     * Finds a list of employees by their location.
+     * 
+     * @param location The location to filter employees by.
+     * @return A list of employees belonging to the specified location.
+     */ 
+    public List<Employee> findByLocation(String location);
 }

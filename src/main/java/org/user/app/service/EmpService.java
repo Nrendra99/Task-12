@@ -33,7 +33,15 @@ public interface EmpService {
      * @return A list of employees belonging to the specified department.
      */
     public List<Employee> getEmployeesByDep(String department);
-
+    
+    /**
+     * Retrieves employees by their department.
+     * 
+     * @param location The location to filter employees by.
+     * @return A list of employees belonging to the specified location.
+     */
+    public List<Employee> getEmployeesByLocation(String location);
+    
     /**
      * Retrieves an employee by their ID.
      * 

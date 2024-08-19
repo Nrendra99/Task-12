@@ -96,6 +96,14 @@
                 <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="text-danger"></span>
             </div>
 
+            <!-- Location input field -->
+            <div class="mb-3">
+                <label class="form-label">Location</label>
+                <input type="text" th:field="*{location}" id="location" class="form-control" placeholder="Enter Location">
+                <!-- Display validation errors for Location -->
+                <span th:if="${#fields.hasErrors('location')}" th:errors="*{location}" class="text-danger"></span>
+            </div>
+
             <!-- Submit button for the form -->
             <button type="submit" class="btn btn-primary">Add</button>
         </form>

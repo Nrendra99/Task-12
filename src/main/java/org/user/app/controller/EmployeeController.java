@@ -52,7 +52,7 @@ public class EmployeeController {
 
     /**
      * Handles the form submission for adding a new employee.
-     * 
+     *  
      * @param employee The employee data from the form, validated.
      * @param result The result of validation, containing any validation errors.
      * @param model Model object to hold data for the view.
@@ -141,6 +141,7 @@ public class EmployeeController {
         existingEmployee.setDepartment(employeeDetails.getDepartment());
         existingEmployee.setSalary(employeeDetails.getSalary());
         existingEmployee.setRole(employeeDetails.getRole());
+        existingEmployee.setLocation(employeeDetails.getLocation());
 
         this.serviceImplementation.updateEmployee(existingEmployee);
 
@@ -168,11 +169,26 @@ public class EmployeeController {
      * @param model Model object to hold data for the view.
      * @return The name of the view template to render.
      */
-    @GetMapping("/view/{department}")
+    @GetMapping("/Dept/{department}")
     @Operation(summary = "View employees by department", description = "Retrieves and displays employees filtered by department.")
     @ApiResponse(responseCode = "200", description = "Successfully retrieved employees by department")
     public String viewEmpByDep(@PathVariable String department, Model model) {
         model.addAttribute("employees", this.serviceImplementation.getEmployeesByDep(department));
         return "EmployeeByDep"; // View name for displaying employees by department
+    }
+    
+    /**
+     * Displays employees filtered by location.
+     * 
+     * @param department The location to filter employees by.
+     * @param model Model object to hold data for the view.
+     * @return The name of the view template to render.
+     */
+    @GetMapping("/view/{location}")
+    @Operation(summary = "View employees by location", description = "Retrieves and displays employees filtered by location.")
+    @ApiResponse(responseCode = "200", description = "Successfully retrieved employees by location")
+    public String viewEmpByLocation(@PathVariable String location, Model model) {
+        model.addAttribute("employees", this.serviceImplementation.getEmployeesByLocation(location));
+        return "EmployeeByLocation"; // View name for displaying employees by department
     }
 }

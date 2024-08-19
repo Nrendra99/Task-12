@@ -66,10 +66,19 @@ public class Employee {
     @NotBlank(message = "Department must be assigned")
     private String department;
     
+    
     /**
      * The role of the employee within the organization.
      * This field is mandatory and cannot be blank.
      */
     @NotBlank(message = "Role is mandatory")
     private String role;
+    
+    /**
+     * The Location of the employee .
+     * This field is mandatory and cannot be blank.
+     */
+    @NotBlank(message = "Location must be assigned")
+    private String location;
+    
 }

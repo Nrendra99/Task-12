@@ -17,19 +17,24 @@
     color: white; /* White text color for the header */
     padding: 5px; /* Padding around the text */
   }
+
+  button{
+    margin: 2px; /* Margin around the buttons */
+  }
 </style>
 <body>
-  <header>
-   <h1>Employee Management system</h1>
-  </header>
-  <ul class="nav justify-content-center">
-    <li class="nav-item">
-      <a class="nav-link active" href="/home">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="/addEmployee">Add New Employee</a>
-    </li>
-  </ul>
+   <!-- Main header for the page -->
+   <h1>Employee Homepage</h1>
+    
+   <!-- Navigation bar with links to other pages -->
+   <ul class="nav justify-content-center">
+       <li class="nav-item">
+         <a class="nav-link active" href="/home">Home</a> <!-- Link to the home page -->
+       </li>
+       <li class="nav-item">
+         <a class="nav-link active" href="/addEmployee">Add New Employee</a> <!-- Link to add a new employee -->
+       </li>
+   </ul>
 
     <!-- Container for the employee table -->
     <div class="container mt-4">
@@ -45,6 +50,7 @@
                 <th scope="col">Salary</th> <!-- Column for employee salary -->
                 <th scope="col">Department</th> <!-- Column for employee department -->
                 <th scope="col">Role</th> <!-- Column for employee role -->
+                <th scope="col">Location</th> <!-- Column for employee role -->
                 <th scope="col">Action</th> <!-- Column for action buttons -->
               </tr>
             </thead>
@@ -59,6 +65,7 @@
                 <td th:text="${employee.salary}"></td> <!-- Display employee salary -->
                 <td th:text="${employee.department}"></td> <!-- Display employee department -->
                 <td th:text="${employee.role}"></td> <!-- Display employee role -->
+                <td th:text="${employee.location}"></td> <!-- Display employee location --> 
                 <td>
                   <!-- Link to update employee details -->
                   <a th:href="@{/update/{id}(id=${employee.id})}" type="button" class="btn btn-success">Update</a>

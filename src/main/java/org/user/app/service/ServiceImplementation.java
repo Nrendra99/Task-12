@@ -49,6 +49,17 @@ public class ServiceImplementation implements EmpService {
     public List<Employee> getEmployeesByDep(String department) {
         return this.employeeRepository.findByDepartment(department); 
     }
+    
+    /**
+     * Retrieves employees filtered by their location.
+     * 
+     * @param location The department to filter employees by.
+     * @return A list of employees belonging to the specified location.
+     */
+    @Override
+    public List<Employee> getEmployeesByLocation(String location) {
+        return this.employeeRepository.findByLocation(location); 
+    }
 
     /**
      * Retrieves an employee by their ID.
